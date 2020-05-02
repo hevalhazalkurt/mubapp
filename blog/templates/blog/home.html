@@ -1,0 +1,83 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+  {% for post in posts %}
+
+
+        <div class="max-w-xl mx-auto px-4 py-4 bg-white shadow-md rounded-lg">
+          <div class="py-2 flex flex-row items-center justify-between flex-wrap">
+            <div class="flex flex-row items-center">
+              <a href="{% url "user-posts" post.author.username %}" class="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg">
+                <img class="rounded-full h-12 w-12 object-cover" src="{{ post.author.profile.image.url }}" alt="{{ post.author }}">
+                <p class="ml-2 text-base font-medium">{{ post.author }}</p>
+              </a>
+            </div>
+
+            <div class="flex flex-row items-center">
+              <a href="{{ post.category.get_absolute_url }}"><p class="hover:text-blue-600 text-xs font-semibold text-gray-500">#{{ post.category }}</p></a>
+            </div>
+
+            <div class="flex flex-row items-center">
+              <p class="text-xs font-semibold text-gray-500">{{ post.date_posted|date:"F d, Y" }}</p>
+            </div>
+
+          </div>
+          <div class="mt-2">
+            <a href="{{ post.get_absolute_url }}"><img class="object-cover w-full rounded-lg" src="{{ post.image.url }}" alt="{{ post.title }} cover"> </a></div>
+
+          <div class="py-2 flex flex-row items-center justify-between">
+            <a href="{{ post.get_absolute_url }}"><h1 class="hover:text-blue-600 text-gray-900 font-bold text-xl mb-2 py-2">{{ post.title }}</h1></a>
+
+
+          </div>
+          <div class="py-2">
+            <p class="leading-snug">{{ post.summary }}</p>
+          </div>
+        </div>
+
+
+
+  {% endfor %}
+
+
+  <!-- pagination -->
+  <div class="max-w-2xl py-5 mx-auto items-center ">
+  <ul class="flex flex-wrap justify-center">
+
+  {% if is_paginated %}
+      {% if page_obj.has_previous %}
+      <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+          <a class="font-bold mx-1" href="?page=1">First</a>
+      </li>
+      <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+          <a class="font-bold mx-1" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        </li>
+      {% endif %}
+
+      {% for num in page_obj.paginator.page_range %}
+          {% if page_obj.number == num %}
+          <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+              <a class="font-bold mx-1" href="?page={{ num }}">{{ num }}</a>
+              </li>
+          {% elif num > page_obj.number|add:"-3" and num < page_obj.number|add:"3" %}
+          <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+              <a class="font-bold mx-1" href="?page={{ num }}">{{ num }}</a>
+              </li>
+          {% endif %}
+      {% endfor %}
+
+      {% if page_obj.has_next %}
+      <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+          <a class="font-bold mx-1" href="?page={{ page_obj.next_page_number }}">Next</a>
+          </li>
+          <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+          <a class="font-bold mx-1" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+          </li>
+      {% endif %}
+  {% endif %}
+
+   </ul>
+   </div>
+
+
+{% endblock content %}
