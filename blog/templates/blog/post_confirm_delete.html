@@ -1,0 +1,29 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+<div class="container mx-auto">
+  <div class="flex justify-center px-6 my-12">
+    <div class="w-full lg:w-7/12 md:bg-gray-200 p-5 rounded-lg">
+      <h3 class="pt-4 text-3xl text-center">
+          Delete Post</h3>
+
+          <p class="m-5 text-base text-center">Are your sure you want to delete the post <i>"{{ object.title }}"</i></p>
+
+      <form class="font-bold text-md " method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="px-6 pt-6 mb-6 text-center">
+          <button class="w-full px-2 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline" type="submit">
+            Yes, delete</ </button>
+        </div>
+        <a href="{% url "blog-detail" object.slug %}"><p class="text-base text-center">Cancel</p></a>
+
+      </form>
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock content %}
