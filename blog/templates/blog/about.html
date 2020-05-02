@@ -1,0 +1,52 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+<div class="max-w-xl mx-auto p-6 bg-white shadow-md rounded-lg">
+  <div class="py-2 flex flex-row items-center justify-between">
+    <div class="flex flex-row items-center">
+      <h1 class="text-gray-900 font-bold text-3xl mb-2 py-2">About</h1>
+    </div>
+
+  </div>
+  <div class="mt-2">
+    <img class="object-cover w-full rounded-lg" src="../../media/about.jpg" alt="{{ object.title }} cover"> </div>
+
+  <div class="py-4 flex flex-row items-center justify-between">
+    <p class="ml-2 text-base font-bold">{ MUB : Multi User Blog }</p>
+  </div>
+
+  <div class="py-2 flex flex-row items-center justify-between">
+    <p class="ml-2 text-base font-base">MUB is a multi-user blog web app using the Python-Django infrastructure and is planned to be developed in the future. You can test it by registering an account or access the source code from the <a href="https://github.com/hevalhazalkurt/multi_user_blog_with_django" target="_blank" class="font-semibold text-gray-800 hover:text-blue-600">project's Github page</a>.</p>
+  </div>
+
+  <div class="py-2 flex flex-row items-center justify-between">
+    <p class="ml-2 text-base font-base">You can contact me through the link below for your questions, projects, and similar needs.</p>
+  </div>
+
+  <div class="py-4 flex flex-row items-center justify-between">
+    <p class="ml-2 text-base font-semibold italic">Heval Hazal Kurt</p>
+  </div>
+
+
+
+  <div class="flex justify-center p-6 text-grey-dark">
+
+  <div class="text-center mr-3 border-r pr-3">
+    <a href="https://github.com/hevalhazalkurt" target="_blank"><img class="h-6 w-6" src="../../media/038-github.png" alt="Heval Hazal Kurt's Github"></a>
+  </div>
+  <div class="text-center mr-3 border-r pr-3">
+    <a href="https://www.linkedin.com/in/hevalhazalkurt/" target="_blank"><img class="h-6 w-6" src="../../media/045-linkedin.png" alt="Heval Hazal Kurt's LinkedIn"></a>
+  </div>
+  <div class="text-center mr-3 border-r pr-3">
+    <a href="https://twitter.com/hevalandsteven" target="_blank"><img class="h-6 w-6" src="../../media/043-twitter.png" alt="Heval Hazal Kurt's Twitter"></a>
+  </div>
+
+  <div class="text-center">
+    <a href="https://www.instagram.com/hevalhazalkurt/" target="_blank"><img class="h-6 w-6" src="../../media/025-instagram.png" alt="Heval Hazal Kurt's Instagram"></a>
+  </div>
+</div>
+
+</div>
+
+{% endblock content %}
