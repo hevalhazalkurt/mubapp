@@ -1,0 +1,34 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container mx-auto">
+  <div class="flex justify-center px-6 my-12">
+    <div class="w-full lg:w-7/12 md:bg-gray-200 p-5 rounded-lg">
+      <h3 class="pt-4 text-2xl text-center">
+        Join Today!</h3>
+      <hr class="mb-6 border-t" />
+
+      <form class="px-8 pt-6 pb-4 mb-4 md:bg-gray-300 rounded w-full leading-relaxed" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        <div class="px-8 pt-6 mb-6 text-center">
+          <button class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline" type="submit">
+            Sign In</button> </div>
+
+            <div class="text-center">
+
+              <a class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
+                Already have an account? Sign In
+              </a>
+            </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock content %}
