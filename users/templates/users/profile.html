@@ -16,7 +16,7 @@
       </div>
       <div class="text-center px-3 pb-6 pt-2">
         <a href="{% url "user-posts" user.username %}"><h1 class="hover:text-blue-600 text-black text-2xl font-semibold font-sans">{{ user.profile.username }}</h1></a>
-        <p class="mt-2 font-sans font-light text-grey-dark">{{ user.profile.about }}</p>
+        <p class="mt-2 font-sans font-light text-grey-dark">{{ user.profile.about|safe }}</p>
       </div>
 
       <div class="flex justify-center pb-6 text-grey-dark">
