@@ -1,0 +1,10 @@
+asgiref==3.2.7
+Django==3.0.5
+django-crispy-forms==1.9.0
+gunicorn==20.0.4
+Pillow==7.1.1
+psycopg2-binary==2.8.5
+python-dotenv==0.13.0
+pytz==2019.3
+sqlparse==0.3.1
+whitenoise==5.0.1
