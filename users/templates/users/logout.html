@@ -1,0 +1,20 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+<div class="container mx-auto">
+  <div class="flex justify-center px-6 my-12">
+    <div class="w-full lg:w-7/12 md:bg-gray-200 p-5 rounded-lg">
+      <h3 class="pt-4 text-2xl text-center">
+          You have been logged out</h3>
+      <hr class="m-6 border-t" />
+
+
+      <a href="{% url "login" %}"><p class="text-sm text-center hover:text-blue-600">Log In Again</p></a>
+
+    </div>
+
+  </div>
+</div>
+
+{% endblock content %}
