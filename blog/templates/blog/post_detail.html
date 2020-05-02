@@ -28,12 +28,12 @@
             <h1 class="text-gray-900 font-bold text-xl mb-2 py-2">{{ object.title }}</h1>
           </div>
           <div class="py-2">
-            <p class="leading-snug">{{ object.summary }}</p>
+            <p class="leading-snug">{{ object.summary|safe }}</p>
             <hr class="mb-2 mt-2 border-t" />
           </div>
 
           <div class="py-2">
-            <p class="leading-snug">{{ object.content }}</p>
+            <p class="leading-snug">{{ object.content|safe }}</p>
           </div>
 
             {% if object.author == user %}
