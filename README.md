@@ -25,6 +25,7 @@ Don't you like reading codes? You can also test [**MUBapp**](https://mubapp.hero
 * Auto-slug url by post title
 * Post listing by user
 * Post listing by category
+* Related posts by category
 * Image uploading
 * Pagination
 * Email backend
@@ -35,7 +36,7 @@ Don't you like reading codes? You can also test [**MUBapp**](https://mubapp.hero
 * Updatable user profile
 * Rich text editor for new and update post
 * Post create, update and delete on frontend
-* Clean and responsive design with tailwindcss
+* Clean and responsive design with TailwindCSS
 
 
 <br>
