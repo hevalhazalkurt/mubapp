@@ -5,11 +5,11 @@
 {% block content %}
 
 
-<div class="container mx-auto">
-  <div class="flex justify-center px-6 my-12">
-    <div class="w-full lg:w-7/12 bg-white shadow-md p-5 rounded-lg">
+
+  <div class="flex flex-row justify-center max-w-xl md:mx-auto  md:px-4 md:py-4">
+    <div class="w-full bg-white shadow-md my-2 p-2 md:p-4 rounded-lg">
       <div class="flex items-center shadow-md">
-        <img class="w-full h-56 object-cover object-center" src="{{ user.profile.cover.url }}" alt="avatar">
+        <img class="w-full h-28 md:h-56 object-cover object-center rounded" src="{{ user.profile.cover.url }}" alt="avatar">
       </div>
       <div class="flex justify-center -mt-12">
         <img src="{{ user.profile.image.url }}" class="h-32 w-32 rounded-full mx-auto shadow-md">
@@ -36,10 +36,10 @@
   	</div>
 
 
-      <form class="p-8 md:bg-gray-200 rounded w-full leading-relaxed" method="POST" , enctype="multipart/form-data">
-        <span class="text-black text-base font-bold font-sans">Update your info</span>
-          <hr class="mb-2 mt-2 border-t" />
-          <span class="text-black text-xs font-sans">
+      <form class="px-4 md:px-6 pt-6 mb-4 md:w-full leading-loose font-semibold text-sm bg-gray-200 rounded " method="POST" , enctype="multipart/form-data">
+        <p class="text-black text-base text-center font-bold font-sans">Update your info</p>
+          <hr class="m-3 border-white" />
+          <span class="w-full text-black text-xs font-sans">
         {% csrf_token %}
 
         {{ u_form|crispy }}
@@ -54,7 +54,7 @@
         </div>
       </div>
     </div>
-  </div>
+
 
 
 {% endblock content %}
