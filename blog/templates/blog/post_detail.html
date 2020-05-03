@@ -3,48 +3,98 @@
 {% block content %}
 
 
-        <div class="max-w-xl mx-auto px-4 py-4 bg-white shadow-md rounded-lg">
-          <div class="py-2 flex flex-row items-center justify-between flex-wrap">
-            <div class="flex flex-row items-center">
-              <a href="{% url "user-posts" post.author.username %}" class="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg">
-                <img class="rounded-full h-12 w-12 object-cover" src="{{ object.author.profile.image.url }}" alt="{{ object.author }}">
-                <p class="ml-2 text-base font-medium">{{ object.author }}</p>
-              </a>
-            </div>
-
-            <div class="flex flex-row items-center">
-              <a href="{{ object.category.get_absolute_url }}"><p class="text-xs font-semibold text-gray-500">#{{ object.category }}</p></a>
-            </div>
-
-            <div class="flex flex-row items-center">
-              <p class="text-xs font-semibold text-gray-500">{{ object.date_posted|date:"F d, Y" }}</p>
-            </div>
-
-          </div>
-          <div class="mt-2">
-            <img class="object-cover w-full rounded-lg" src="{{ object.image.url }}" alt="{{ object.title }} cover"> </div>
-
-          <div class="py-2 flex flex-row items-center justify-between">
-            <h1 class="text-gray-900 font-bold text-xl mb-2 py-2">{{ object.title }}</h1>
-          </div>
-          <div class="py-2">
-            <p class="leading-snug">{{ object.summary|safe }}</p>
-            <hr class="mb-2 mt-2 border-t" />
-          </div>
-
-          <div class="py-2">
-            <p class="leading-snug">{{ object.content|safe }}</p>
-          </div>
-
-            {% if object.author == user %}
-            <hr class="mb-2 mt-2 border-t" />
-            <div class="m-2 flex flex-row items-center justify-between">
-
-                <a class="text-sm font-semibold text-gray-500" href="{% url "blog-update" object.slug %}">Update</a>
-                <a class="text-sm font-semibold text-gray-500" href="{% url "blog-delete" object.slug %}">Delete</a>
-              </div>
-            {% endif %}
+    <div class="max-w-xl mx-auto px-4 py-4 bg-white shadow-md rounded-lg">
+      <div class="py-2 flex flex-row items-center justify-between flex-wrap">
+        <div class="flex flex-row items-center">
+          <a href="{% url "user-posts" post.author.username %}" class="flex flex-row items-center focus:outline-none focus:shadow-outline rounded-lg">
+            <img class="rounded-full h-12 w-12 object-cover" src="{{ object.author.profile.image.url }}" alt="{{ object.author }}">
+            <p class="ml-2 text-base font-medium">{{ object.author }}</p>
+          </a>
         </div>
 
+        <div class="flex flex-row items-center">
+          <a href="{{ object.category.get_absolute_url }}">
+            <p class="text-xs font-semibold text-gray-500 hover:text-blue-600">#{{ object.category }}</p>
+          </a>
+        </div>
 
-{% endblock content %}
+        <div class="flex flex-row items-center">
+          <p class="text-xs font-semibold text-gray-500">{{ object.date_posted|date:"F d, Y" }}</p>
+        </div>
+
+      </div>
+      <div class="mt-2">
+        <img class="object-cover w-full rounded-lg" src="{{ object.image.url }}" alt="{{ object.title }} cover"> </div>
+
+      <div class="py-2 flex flex-row items-center justify-between">
+        <h1 class="text-gray-900 font-bold text-xl mb-2 py-2">{{ object.title }}</h1>
+      </div>
+      <div class="py-2">
+        <p class="leading-snug">{{ object.summary|safe }}</p>
+        <hr class="mb-2 mt-2 border-t" />
+      </div>
+
+      <div class="py-2">
+        <p class="leading-snug">{{ object.content|safe }}</p>
+      </div>
+
+      {% if object.author == user %}
+      <hr class="mb-2 mt-2 border-t" />
+      <div class="m-2 flex flex-row items-center justify-between">
+
+        <a class="text-sm font-semibold text-gray-500" href="{% url "blog-update" object.slug %}">Update</a>
+        <a class="text-sm font-semibold text-gray-500" href="{% url "blog-delete" object.slug %}">Delete</a>
+      </div>
+      {% endif %}
+    </div>
+
+
+    <!-- Related posts by category -->
+
+    <div class="max-w-xl mx-auto px-3 py-3 bg-white shadow-md rounded-lg">
+      <h1 class="text-gray-900 font-bold text-center text-2xl mb-2 py-2">RELATED POSTS</h1>
+      <div class="w-full md:flex md:-mx-2 ">
+        <div class="w-full md:w-1/2 px-2">
+        {% with related1=post.category.post_set.all|random  %}
+            {% if related1.pk == object.pk %}
+                {% with related=post.category.post_set.all|random  %}
+                  <a href="{{ related1.get_absolute_url }}">
+                    <img class="object-cover w-full h-24 m-2 rounded-lg" src="{{ related1.image.url }}" alt="{{ related1.title }} cover">
+                    <a href="{{ related1.get_absolute_url }}">
+                      <h1 class="text-gray-900 font-semibold text-center text-l m-2 hover:text-blue-600">{{ related1.title }}</h1>
+                    </a>
+                {% endwith %}
+            {% else %}
+                <a href="{{ related1.get_absolute_url }}">
+                  <img class="object-cover w-full h-24 m-2 rounded-lg" src="{{ related1.image.url }}" alt="{{ related1.title }} cover">
+                  <a href="{{ related1.get_absolute_url }}">
+                    <h1 class="text-gray-900 font-semibold text-center text-l m-2 hover:text-blue-600">{{ related1.title }}</h1>
+                  </a>
+            {% endif %}
+        {% endwith %}
+        </div>
+
+        <div class="w-full md:w-1/2 px-2">
+          {% with related2=post.category.post_set.all|random  %}
+              {% if related2.pk == object.pk or related2.pk == related1.pk %}
+                  {% with related2=post.category.post_set.all|random  %}
+                    <a href="{{ related2.get_absolute_url }}">
+                      <img class="object-cover w-full h-24 m-2 rounded-lg" src="{{ related2.image.url }}" alt="{{ related2.title }} cover">
+                      <a href="{{ related2.get_absolute_url }}">
+                        <h1 class="text-gray-900 font-semibold text-center text-l m-2 hover:text-blue-600">{{ related2.title }}</h1>
+                      </a>
+                  {% endwith %}
+              {% else %}
+                  <a href="{{ related2.get_absolute_url }}">
+                    <img class="object-cover w-full h-24 m-2 rounded-lg" src="{{ related2.image.url }}" alt="{{ related2.title }} cover">
+                    <a href="{{ related2.get_absolute_url }}">
+                      <h1 class="text-gray-900 font-semibold text-center text-l m-2 hover:text-blue-600">{{ related2.title }}</h1>
+                    </a>
+              {% endif %}
+          {% endwith %}
+        </div>
+      </div>
+    </div>
+
+
+  {% endblock content %}
