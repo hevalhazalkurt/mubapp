@@ -3,14 +3,14 @@
 
 {% block content %}
 
-<div class="container mx-auto">
-  <div class="flex justify-center px-6 my-12">
-    <div class="w-full lg:w-7/12 md:bg-gray-200 p-5 rounded-lg">
+
+  <div class="flex justify-center my-5 md:max-w-xl md:mx-auto md:px-4 md:py-4 ">
+    <div class="w-full bg-gray-300 shadow-md rounded-lg ">
       <h3 class="pt-4 text-2xl text-center">
           Blog Post</h3>
-      <hr class="mb-6 border-t" />
+      <hr class="m-6 border-gray-100" />
 
-      <form class="px-8 pt-6 pb-8 mb-4 md:bg-gray-300 rounded w-full leading-relaxed font-semibold text-sm " method="POST" enctype="multipart/form-data">
+      <form class="px-4 md:px-6 pt-6 mb-4 rounded md:w-full leading-relaxed font-semibold text-sm" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form|crispy|safe }}
         {{ form.media|safe }}
@@ -23,7 +23,8 @@
     </div>
 
   </div>
-</div>
+
+
 
 
 {% endblock content %}
