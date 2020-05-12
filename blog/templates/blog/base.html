@@ -3,7 +3,13 @@
 
 <head>
   {% if object.title %}
-  <title> { MUB : {{ object.title }} }</title>
+  <title> { MUB :  {{ object.title }} }</title>
+  {% elif title %}
+  <title> { MUB :  {{ title }} }</title>
+  {% elif view.kwargs.username %}
+  <title> { MUB : {{ view.kwargs.username }} }</title>
+  {% elif view.kwargs.slug %}
+  <title> { MUB : {{ view.kwargs.slug|title }} }</title>
   {% else %}
   <title>{ MUB : Multi-User Blog }</title>
   {% endif %}
