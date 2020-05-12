@@ -1,8 +1,8 @@
 from django.db import models
 from django.utils import timezone
+from django.utils.text import slugify
 from django.contrib.auth.models import User
 from django.urls import reverse
-from django.utils.text import slugify
 from ckeditor_uploader.fields import RichTextUploadingField
 
 
