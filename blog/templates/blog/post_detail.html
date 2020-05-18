@@ -51,48 +51,19 @@
 
     <!-- Related posts by category -->
 
+
     <div class="max-w-xl mx-auto px-3 py-3 bg-white shadow-md rounded-lg">
       <h1 class="text-gray-900 font-bold text-center text-2xl mb-2 py-2">RELATED POSTS</h1>
       <div class="w-full md:flex md:-mx-2 ">
+        {% for post in related_posts %}
         <div class="w-full md:w-1/2 px-2">
-        {% with related1=post.category.post_set.all|random  %}
-            {% if related1.pk == object.pk %}
-                {% with related=post.category.post_set.all|random  %}
-                  <a href="{{ related1.get_absolute_url }}">
-                    <img class="object-cover w-full h-24 m-2 rounded-lg" src="{{ related1.image.url }}" alt="{{ related1.title }} cover">
-                    <a href="{{ related1.get_absolute_url }}">
-                      <h1 class="text-gray-900 font-semibold text-center text-l m-2 hover:text-blue-600">{{ related1.title }}</h1>
-                    </a>
-                {% endwith %}
-            {% else %}
-                <a href="{{ related1.get_absolute_url }}">
-                  <img class="object-cover w-full h-24 m-2 rounded-lg" src="{{ related1.image.url }}" alt="{{ related1.title }} cover">
-                  <a href="{{ related1.get_absolute_url }}">
-                    <h1 class="text-gray-900 font-semibold text-center text-l m-2 hover:text-blue-600">{{ related1.title }}</h1>
-                  </a>
-            {% endif %}
-        {% endwith %}
-        </div>
-
-        <div class="w-full md:w-1/2 px-2">
-          {% with related2=post.category.post_set.all|random  %}
-              {% if related2.pk == object.pk or related2.pk == related1.pk %}
-                  {% with related2=post.category.post_set.all|random  %}
-                    <a href="{{ related2.get_absolute_url }}">
-                      <img class="object-cover w-full h-24 m-2 rounded-lg" src="{{ related2.image.url }}" alt="{{ related2.title }} cover">
-                      <a href="{{ related2.get_absolute_url }}">
-                        <h1 class="text-gray-900 font-semibold text-center text-l m-2 hover:text-blue-600">{{ related2.title }}</h1>
-                      </a>
-                  {% endwith %}
-              {% else %}
-                  <a href="{{ related2.get_absolute_url }}">
-                    <img class="object-cover w-full h-24 m-2 rounded-lg" src="{{ related2.image.url }}" alt="{{ related2.title }} cover">
-                    <a href="{{ related2.get_absolute_url }}">
-                      <h1 class="text-gray-900 font-semibold text-center text-l m-2 hover:text-blue-600">{{ related2.title }}</h1>
-                    </a>
-              {% endif %}
-          {% endwith %}
-        </div>
+          <a href="{{ post.get_absolute_url }}">
+            <img class="object-cover w-full h-24 m-2 rounded-lg" src="{{ post.image.url }}" alt="{{ post.title }} cover"> </a>
+            <a href="{{ post.get_absolute_url }}">
+              <h1 class="text-gray-900 font-semibold text-center text-l m-2 hover:text-blue-600">{{ post.title }}</h1>
+            </a>
+          </div>
+        {% endfor %}
       </div>
     </div>
 
