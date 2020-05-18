@@ -2,10 +2,45 @@
 
 {% block content %}
 
+<div class="flex flex-row justify-center max-w-xl md:mx-auto  md:px-4 md:py-4">
+  <div class="w-full bg-white shadow-md my-2 p-2 md:p-4 rounded-lg">
+
+    <div class="flex items-center shadow-md">
+      <img class="w-full h-28 md:h-56 object-cover object-center rounded" src="{{ user_profile.profile.cover.url }}" alt="avatar">
+    </div>
+    <div class="flex justify-center -mt-12">
+      <img src="{{ user_profile.profile.image.url }}" class="h-32 w-32 rounded-full mx-auto shadow-md">
+    </div>
+    <div class="text-center px-3 pb-6 pt-2">
+      <a href="{% url "user-posts" user_profile.username %}"><h1 class="hover:text-blue-600 text-black text-2xl font-semibold font-sans">{{ user_profile.profile.username }}</h1></a>
+      <p class="mt-2 font-sans font-light text-grey-dark">{{ user_profile.profile.about|safe }}</p>
+    </div>
+
+    <div class="flex justify-center pb-6 text-grey-dark">
+    <div class="text-center mr-3 border-r pr-3">
+      <a href="{{ user_profile.profile.github }}" target="_blank"><img class="h-6 w-6" src="../../media/038-github.png" alt="{{ user_profile.username }}'s Github"></a>
+    </div>
+    <div class="text-center mr-3 border-r pr-3">
+      <a href="{{ user_profile.profile.linkedin }}" target="_blank"><img class="h-6 w-6" src="../../media/045-linkedin.png" alt="{{ user_profile.username }}'s LinkedIn"></a>
+    </div>
+    <div class="text-center mr-3 border-r pr-3">
+      <a href="{{ user_profile.profile.twitter }}" target="_blank"><img class="h-6 w-6" src="../../media/043-twitter.png" alt="{{ user_profile.username }}'s Twitter"></a>
+    </div>
+
+    <div class="text-center">
+      <a href="{{ user_profile.profile.instagram }}" target="_blank"><img class="h-6 w-6" src="../../media/025-instagram.png" alt="{{ user_profile.username }}'s Instagram"></a>
+    </div>
+    </div>
+
+  </div>
+</div>
+
 
 <div class="max-w-xl mx-auto px-4 py-4 bg-white shadow-md rounded-lg">
   <h1 class="text-lg font-bold uppercase text-gray-900">Posts by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
 </div>
+
+
 
   {% for post in posts %}
 
