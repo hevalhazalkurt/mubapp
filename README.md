@@ -22,6 +22,7 @@ Don't you like reading codes? You can also test [**MUBapp**](https://mubapp.hero
 <br>
 
 * Multi user blogging system
+* User profile card 
 * Auto-slug url by post title
 * Post listing by user
 * Post listing by category
