@@ -28,9 +28,20 @@ class UserPostListView(ListView):
         return Post.objects.filter(author=user).order_by("-date_posted")
 
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user_profile'] = User.objects.get(username=self.kwargs.get("username"))
+        return context
+
+
 
 class PostDetailView(DetailView):
     model = Post
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['related_posts'] = Post.objects.filter(category=self.object.category).order_by('?')[:2]
+        return context
 
 
 
