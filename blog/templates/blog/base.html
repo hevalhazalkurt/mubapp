@@ -3,6 +3,7 @@
 
 <head>
 
+<!-- meta tags for different kind of pages -->
 {% with home="https://mubapp.herokuapp.com" %}
 
   {% if object.title %}
@@ -25,12 +26,28 @@
     <meta property="og:title" content="{ MUB :  {{ title }} }">
     <meta property="twitter:title" content="{ MUB :  {{ title }} }">
 
-    <meta name="description" content="{{ summary }}">
-    <meta property="og:description" content="{{ summary }}">
-    <meta property="twitter:description" content="{{ summary }}">
+        {% if summary %}
+            <meta name="description" content="{{ summary }}">
+            <meta property="og:description" content="{{ summary }}">
+            <meta property="twitter:description" content="{{ summary }}">
+        {% elif content %}
+            <meta name="description" content="{{ content }}">
+            <meta property="og:description" content="{{ content }}">
+            <meta property="twitter:description" content="{{ content }}">
+        {% else %}
+            <meta name="description" content="MUB is a multi-user blog web app using the Python-Django infrastructure built by Heval Hazal Kurt.">
+            <meta property="og:description" content="MUB is a multi-user blog web app using the Python-Django infrastructure built by Heval Hazal Kurt.">
+            <meta property="twitter:description" content="MUB is a multi-user blog web app using the Python-Django infrastructure built by Heval Hazal Kurt.">
+        {% endif %}
 
-    <meta property="og:image" content="{{ home }}{{ image.url }}">
-    <meta property="twitter:image" content="{{ home }}{{ image.url }}">
+
+        {% if image.url %}
+            <meta property="og:image" content="{{ home }}{{ image.url }}">
+            <meta property="twitter:image" content="{{ home }}{{ image.url }}">
+        {% else %}
+            <meta property="og:image" content="{{ home }}/media/about.jpg">
+            <meta property="twitter:image" content="{{ home }}/media/about.jpg">
+        {% endif %}
 
     <meta property="og:author" content="Heval Hazal Kurt">
     <meta property="twitter:author" content="Heval Hazal Kurt">
@@ -59,8 +76,13 @@
     <meta property="og:description" content="Read more blog posts about {{ view.kwargs.slug }} from different users in MUBapp.">
     <meta property="twitter:description" content="Read more blog posts about {{ view.kwargs.slug }} from different users in MUBapp.">
 
-    <meta property="og:image" content="{{ home }}/media/about.jpg">
-    <meta property="twitter:image" content="{{ home }}/media/about.jpg">
+        {% if view.kwargs.image.url %}
+            <meta property="og:image" content="{{ home }}{{ view.kwargs.image.url }}">
+            <meta property="twitter:image" content="{{ home }}{{ view.kwargs.image.url }}">
+        {% else %}
+            <meta property="og:image" content="{{ home }}/media/about.jpg">
+            <meta property="twitter:image" content="{{ home }}/media/about.jpg">
+        {% endif %}
 
     <meta property="og:author" content="Heval Hazal Kurt">
     <meta property="twitter:author" content="Heval Hazal Kurt">
