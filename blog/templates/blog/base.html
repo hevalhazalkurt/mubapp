@@ -47,9 +47,13 @@
     <meta property="og:description" content="{{ summary }}">
     <meta property="twitter:description" content="{{ summary }}">
   {% elif view.kwargs.username %}
-    <meta name="description" content="{{ view.kwargs.username }} : {{ user_profile.profile.about }}">
-    <meta property="og:description" content="{{ view.kwargs.username }} : {{ user_profile.profile.about }}">
-    <meta property="twitter:description" content="{{ view.kwargs.username }} : {{ user_profile.profile.about }}">
+    <meta name="description" content="{{ user_profile.profile.about }}">
+    <meta property="og:description" content="{{ user_profile.profile.about }}">
+    <meta property="twitter:description" content="{{ user_profile.profile.about }}">
+  {% elif view.kwargs.slug %}
+    <meta name="description" content="Posts in #{{ view.kwargs.slug }}">
+    <meta property="og:description" content="Posts in #{{ view.kwargs.slug }}">
+    <meta property="twitter:description" content="Posts in #{{ view.kwargs.slug }}">
   {% elif view.kwargs.summary %}
     <meta name="description" content="{{ view.kwargs.summary }}">
     <meta property="og:description" content="{{ view.kwargs.summary }}">
@@ -90,9 +94,12 @@
   {% elif view.kwargs.username %}
     <meta property="og:url" content="http://mubapp.herokuapp.com/user/{{ view.kwargs.username }}">
     <meta property="twitter:url" content="http://mubapp.herokuapp.com/user/{{ view.kwargs.username }}">
+  {% elif view.kwargs.slug %}
+    <meta property="og:url" content="http://mubapp.herokuapp.com/user/{{ view.kwargs.username }}">
+    <meta property="twitter:url" content="http://mubapp.herokuapp.com/user/{{ view.kwargs.username }}">
   {% elif view.kwargs.get_absolute_url %}
-    <meta property="og:url" content="http://mubapp.herokuapp.com{{ view.kwargs.get_absolute_url }}">
-    <meta property="twitter:url" content="http://mubapp.herokuapp.com{{ view.kwargs.get_absolute_url }}">
+    <meta property="og:url" content="http://mubapp.herokuapp.com/category/{{ view.kwargs.slug|title }}">
+    <meta property="twitter:url" content="http://mubapp.herokuapp.com/category/{{ view.kwargs.slug|title }}">
   {% else %}
     <meta property="og:url" content="https://mubapp.herokuapp.com/">
     <meta property="twitter:url" content="https://mubapp.herokuapp.com/">
