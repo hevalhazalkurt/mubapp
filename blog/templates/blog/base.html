@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <!--
   {% if object.title %}
   <title> { MUB :  {{ object.title }} }</title>
   {% elif title %}
@@ -12,27 +13,99 @@
   <title> { MUB : {{ view.kwargs.slug|title }} }</title>
   {% else %}
   <title>{ MUB : Multi-User Blog }</title>
+  {% endif %} -->
+
+  {% if object.title %}
+    <title> { MUB :  {{ object.title }} }</title>
+    <meta property="og:title" content="{{ object.title }}">
+    <meta property="twitter:title" content="{{ object.title }}">
+  {% elif title %}
+    <title> { MUB :  {{ title }} }</title>
+    <meta property="og:title" content="{ MUB :  {{ title }} }">
+    <meta property="twitter:title" content="{ MUB :  {{ title }} }">
+  {% elif view.kwargs.username %}
+    <title> { MUB : {{ view.kwargs.username }} }</title>
+    <meta property="og:title" content="{ MUB : {{ view.kwargs.username }} }">
+    <meta property="twitter:title" content="{ MUB : {{ view.kwargs.username }} }">
+  {% elif view.kwargs.slug %}
+    <title> { MUB : {{ view.kwargs.slug|title }} }</title>
+    <meta property="og:title" content="{ MUB : {{ view.kwargs.slug|title }} }">
+    <meta property="twitter:title" content="{ MUB : {{ view.kwargs.slug|title }} }">
+  {% else %}
+    <title>{ MUB : Multi-User Blog }</title>
+    <meta property="og:title" content="{ MUB : Multi-User Blog }">
+    <meta property="twitter:title" content="{ MUB : Multi-User Blog }">
   {% endif %}
 
+
+  {% if object.summary %}
+    <meta name="description" content="{{ object.summary }}">
+    <meta property="twitter:description" content="{{ object.summary }}">
+  {% elif summary %}
+    <meta name="description" content="{{ summary }}">
+    <meta property="twitter:description" content="{{ summary }}">
+  {% elif view.kwargs.summary %}
+    <meta name="description" content="{{ view.kwargs.summary }}">
+    <meta property="twitter:description" content="{{ view.kwargs.summary }}">
+  {% else %}
+    <meta name="description" content="MUB is a multi-user blog web app using the Python-Django infrastructure built by Heval Hazal Kurt.">
+    <meta property="og:title" content="MUB is a multi-user blog web app using the Python-Django infrastructure built by Heval Hazal Kurt.">
+    <meta property="twitter:title" content="MUB is a multi-user blog web app using the Python-Django infrastructure built by Heval Hazal Kurt.">
+  {% endif %}
+
+
+
+  {% if object.image.url %}
+    <meta property="og:image" content="{{ object.image.url }}">
+    <meta property="twitter:image" content="{{ object.image.url }}">
+  {% elif image.url %}
+    <meta property="og:image" content="{{ image.url }}">
+    <meta property="twitter:image" content="{{ image.url }}">
+  {% elif view.kwargs.image.url %}
+    <meta property="og:image" content="{{ view.kwargs.image.url }}">
+    <meta property="twitter:image" content="{{ view.kwargs.image.url }}">
+  {% else %}
+    <meta property="og:image" content="https://mubapp.herokuapp.com/media/about.jpg">
+    <meta property="twitter:image" content="https://mubapp.herokuapp.com/media/about.jpg">
+  {% endif %}
+
+
+
+
+  {% if object.get_absolute_url %}
+    <meta property="og:url" content="{{ object.get_absolute_url }}">
+    <meta property="twitter:url" content="{{ object.get_absolute_url }}">
+  {% elif get_absolute_url %}
+    <meta property="og:url" content="{{ get_absolute_url }}">
+    <meta property="twitter:url" content="{{ get_absolute_url }}">
+  {% elif view.kwargs.get_absolute_url %}
+    <meta property="og:url" content="{{ view.kwargs.get_absolute_url }}">
+    <meta property="twitter:url" content="{{ view.kwargs.get_absolute_url }}">
+  {% else %}
+    <meta property="og:url" content="https://mubapp.herokuapp.com/">
+    <meta property="twitter:url" content="https://mubapp.herokuapp.com/">
+  {% endif %}
+
+<!--
   <meta name="description" content="MUB is a multi-user blog web app using the Python-Django infrastructure built by Heval Hazal Kurt.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="Heval Hazal Kurt">
+  <meta name="author" content="Heval Hazal Kurt">-->
 
   <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
+  <!--<meta property="og:type" content="website">
   <meta property="og:url" content="https://mubapp.herokuapp.com/">
   <meta property="og:title" content="{ MUB : Multi-User Blog }">
   <meta property="og:author" content="Heval Hazal Kurt">
   <meta property="og:description" content="MUB is a multi-user blog web app using the Python-Django infrastructure built by Heval Hazal Kurt. ">
-  <meta property="og:image" content="https://mubapp.herokuapp.com/media/about.jpg">
+  <meta property="og:image" content="https://mubapp.herokuapp.com/media/about.jpg">-->
 
   <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
+  <!--<meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://mubapp.herokuapp.com/">
   <meta property="twitter:title" content="{ MUB : Multi-User Blog }">
   <meta property="twitter:author" content="Heval Hazal Kurt">
   <meta property="twitter:description" content="MUB is a multi-user blog web app using the Python-Django infrastructure built by Heval Hazal Kurt.">
-  <meta property="twitter:image" content="https://mubapp.herokuapp.com/media/about.jpg">
+  <meta property="twitter:image" content="https://mubapp.herokuapp.com/media/about.jpg"> -->
 
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 
