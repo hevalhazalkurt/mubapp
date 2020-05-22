@@ -30,6 +30,9 @@
     <meta property="og:url" content="https://mubapp.herokuapp.com{{ object.get_absolute_url }}">
     <meta property="twitter:url" content="https://mubapp.herokuapp.com{{ object.get_absolute_url }}">
 
+    <meta property="og:author" content="{{ object.author }}">
+    <meta property="twitter:author" content="{{ object.author }}">
+
   {% elif title %}
     <title> { MUB :  {{ title }} }</title>
     <meta property="og:title" content="{ MUB :  {{ title }} }">
@@ -42,8 +45,11 @@
     <meta property="og:image" content="https://mubapp.herokuapp.com{{ image.url }}">
     <meta property="twitter:image" content="https://mubapp.herokuapp.com{{ image.url }}">
 
-    <meta property="og:url" content="https://mubapp.herokuapp.com/{{ title }}">
-    <meta property="twitter:url" content="https://mubapp.herokuapp.com/{{ title }}">
+    <meta property="og:url" content="https://mubapp.herokuapp.com/{{ title|lower }}">
+    <meta property="twitter:url" content="https://mubapp.herokuapp.com/{{ title|lower }}">
+
+    <meta property="og:author" content="Heval Hazal Kurt">
+    <meta property="twitter:author" content="Heval Hazal Kurt">
 
   {% elif view.kwargs.username %}
     <title> { MUB : {{ view.kwargs.username }} }</title>
@@ -72,8 +78,8 @@
     <meta property="og:description" content="Read more blog posts about {{ view.kwargs.slug }} from different users in MUBapp.">
     <meta property="twitter:description" content="Read more blog posts about {{ view.kwargs.slug }} from different users in MUBapp.">
 
-    <meta property="og:image" content="https://mubapp.herokuapp.com{{ view.kwargs.image.url }}">
-    <meta property="twitter:image" content="https://mubapp.herokuapp.com{{ view.kwargs.image.url }}">
+    <meta property="og:image" content="https://mubapp.herokuapp.com/media/about.jpg">
+    <meta property="twitter:image" content="https://mubapp.herokuapp.com/media/about.jpg">
 
     <meta property="og:url" content="https://mubapp.herokuapp.com/category/{{ view.kwargs.slug }}/">
     <meta property="twitter:url" content="https://mubapp.herokuapp.com/category/{{ view.kwargs.slug }}/">
