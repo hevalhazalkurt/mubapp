@@ -3,7 +3,7 @@
 
 <head>
 
-{% with home="https://mubapp.herokuapp.com/" %}
+{% with home="https://mubapp.herokuapp.com" %}
 
   {% if object.title %}
     <title> { MUB :  {{ object.title }} }</title>
@@ -59,22 +59,24 @@
     <meta property="og:description" content="Read more blog posts about {{ view.kwargs.slug }} from different users in MUBapp.">
     <meta property="twitter:description" content="Read more blog posts about {{ view.kwargs.slug }} from different users in MUBapp.">
 
-    <meta property="og:image" content="{{ home }}media/about.jpg">
-    <meta property="twitter:image" content="{{ home }}media/about.jpg">
+    <meta property="og:image" content="{{ home }}/media/about.jpg">
+    <meta property="twitter:image" content="{{ home }}/media/about.jpg">
 
-    <meta property="og:url" content="{{ home }}category/{{ view.kwargs.slug }}/">
-    <meta property="twitter:url" content="{{ home }}category/{{ view.kwargs.slug }}/">
+    <meta property="og:author" content="Heval Hazal Kurt">
+    <meta property="twitter:author" content="Heval Hazal Kurt">
+
 
   {% else %}
     <title>{ MUB : Multi-User Blog }</title>
     <meta property="og:title" content="{ MUB : Multi-User Blog }">
     <meta property="twitter:title" content="{ MUB : Multi-User Blog }">
 
+    <meta name="description" content="MUB is a multi-user blog web app using the Python-Django infrastructure built by Heval Hazal Kurt.">
     <meta property="og:description" content="MUB is a multi-user blog web app using the Python-Django infrastructure built by Heval Hazal Kurt.">
     <meta property="twitter:description" content="MUB is a multi-user blog web app using the Python-Django infrastructure built by Heval Hazal Kurt.">
 
-    <meta property="og:image" content="{{ home }}media/about.jpg">
-    <meta property="twitter:image" content="{{ home }}media/about.jpg">
+    <meta property="og:image" content="{{ home }}/media/about.jpg">
+    <meta property="twitter:image" content="{{ home }}/media/about.jpg">
 
     <meta property="og:author" content="Heval Hazal Kurt">
     <meta property="twitter:author" content="Heval Hazal Kurt">
