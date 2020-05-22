@@ -19,25 +19,88 @@
     <title> { MUB :  {{ object.title }} }</title>
     <meta property="og:title" content="{{ object.title }}">
     <meta property="twitter:title" content="{{ object.title }}">
+
+    <meta name="description" content="{{ object.summary }}">
+    <meta property="og:description" content="{{ object.summary }}">
+    <meta property="twitter:description" content="{{ object.summary }}">
+
+    <meta property="og:image" content="https://mubapp.herokuapp.com{{ object.image.url }}">
+    <meta property="twitter:image" content="https://mubapp.herokuapp.com{{ object.image.url }}">
+
+    <meta property="og:url" content="https://mubapp.herokuapp.com{{ object.get_absolute_url }}">
+    <meta property="twitter:url" content="https://mubapp.herokuapp.com{{ object.get_absolute_url }}">
+
   {% elif title %}
     <title> { MUB :  {{ title }} }</title>
     <meta property="og:title" content="{ MUB :  {{ title }} }">
     <meta property="twitter:title" content="{ MUB :  {{ title }} }">
+
+    <meta name="description" content="{{ summary }}">
+    <meta property="og:description" content="{{ summary }}">
+    <meta property="twitter:description" content="{{ summary }}">
+
+    <meta property="og:image" content="https://mubapp.herokuapp.com{{ image.url }}">
+    <meta property="twitter:image" content="https://mubapp.herokuapp.com{{ image.url }}">
+
+    <meta property="og:url" content="https://mubapp.herokuapp.com/{{ title }}">
+    <meta property="twitter:url" content="https://mubapp.herokuapp.com/{{ title }}">
+
   {% elif view.kwargs.username %}
     <title> { MUB : {{ view.kwargs.username }} }</title>
     <meta property="og:title" content="{ MUB : {{ view.kwargs.username }} }">
     <meta property="twitter:title" content="{ MUB : {{ view.kwargs.username }} }">
+
+    <meta name="description" content="{{ user_profile.profile.about }}">
+    <meta property="og:description" content="{{ user_profile.profile.about }}">
+    <meta property="twitter:description" content="{{ user_profile.profile.about }}">
+
+    <meta property="og:image" content="https://mubapp.herokuapp.com{{ user_profile.profile.cover.url }}">
+    <meta property="twitter:image" content="https://mubapp.herokuapp.com{{ user_profile.profile.cover.url }}">
+
+    <meta property="og:url" content="https://mubapp.herokuapp.com/user/{{ view.kwargs.username }}">
+    <meta property="twitter:url" content="https://mubapp.herokuapp.com/user/{{ view.kwargs.username }}">
+
+    <meta property="og:author" content="{{ view.kwargs.username }}">
+    <meta property="twitter:author" content="{{ view.kwargs.username }}">
+
   {% elif view.kwargs.slug %}
     <title> { MUB : {{ view.kwargs.slug|title }} }</title>
     <meta property="og:title" content="{ MUB : {{ view.kwargs.slug|title }} }">
     <meta property="twitter:title" content="{ MUB : {{ view.kwargs.slug|title }} }">
+
+    <meta name="description" content="Read more blog posts about {{ view.kwargs.slug }} from different users in MUBapp.">
+    <meta property="og:description" content="Read more blog posts about {{ view.kwargs.slug }} from different users in MUBapp.">
+    <meta property="twitter:description" content="Read more blog posts about {{ view.kwargs.slug }} from different users in MUBapp.">
+
+    <meta property="og:image" content="https://mubapp.herokuapp.com{{ view.kwargs.image.url }}">
+    <meta property="twitter:image" content="https://mubapp.herokuapp.com{{ view.kwargs.image.url }}">
+
+    <meta property="og:url" content="https://mubapp.herokuapp.com/category/{{ view.kwargs.slug }}/">
+    <meta property="twitter:url" content="https://mubapp.herokuapp.com/category/{{ view.kwargs.slug }}/">
+
+    <meta property="og:url" content="https://mubapp.herokuapp.com{{ view.kwargs.get_absolute_url }}">
+    <meta property="twitter:url" content="https://mubapp.herokuapp.com{{ view.kwargs.get_absolute_url }}">
+
   {% else %}
     <title>{ MUB : Multi-User Blog }</title>
     <meta property="og:title" content="{ MUB : Multi-User Blog }">
     <meta property="twitter:title" content="{ MUB : Multi-User Blog }">
+
+    <meta property="og:description" content="MUB is a multi-user blog web app using the Python-Django infrastructure built by Heval Hazal Kurt.">
+    <meta property="twitter:description" content="MUB is a multi-user blog web app using the Python-Django infrastructure built by Heval Hazal Kurt.">
+
+    <meta property="og:image" content="https://mubapp.herokuapp.com/media/about.jpg">
+    <meta property="twitter:image" content="https://mubapp.herokuapp.com/media/about.jpg">
+
+    <meta property="og:url" content="https://mubapp.herokuapp.com/">
+    <meta property="twitter:url" content="https://mubapp.herokuapp.com/">
+
+    <meta property="og:author" content="Heval Hazal Kurt">
+    <meta property="twitter:author" content="Heval Hazal Kurt">
   {% endif %}
 
 
+<!--
   {% if object.summary %}
     <meta name="description" content="{{ object.summary }}">
     <meta property="og:description" content="{{ object.summary }}">
@@ -67,17 +130,17 @@
 
 
   {% if object.image.url %}
-    <meta property="og:image" content="http://mubapp.herokuapp.com{{ object.image.url }}">
-    <meta property="twitter:image" content="http://mubapp.herokuapp.com{{ object.image.url }}">
+    <meta property="og:image" content="https://mubapp.herokuapp.com{{ object.image.url }}">
+    <meta property="twitter:image" content="https://mubapp.herokuapp.com{{ object.image.url }}">
   {% elif image.url %}
-    <meta property="og:image" content="http://mubapp.herokuapp.com{{ image.url }}">
-    <meta property="twitter:image" content="http://mubapp.herokuapp.com{{ image.url }}">
+    <meta property="og:image" content="https://mubapp.herokuapp.com{{ image.url }}">
+    <meta property="twitter:image" content="https://mubapp.herokuapp.com{{ image.url }}">
   {% elif view.kwargs.username %}
-    <meta property="og:image" content="http://mubapp.herokuapp.com{{ user_profile.profile.cover.url }}">
-    <meta property="twitter:image" content="http://mubapp.herokuapp.com{{ user_profile.profile.cover.url }}">
+    <meta property="og:image" content="https://mubapp.herokuapp.com{{ user_profile.profile.cover.url }}">
+    <meta property="twitter:image" content="https://mubapp.herokuapp.com{{ user_profile.profile.cover.url }}">
   {% elif view.kwargs.image.url %}
-    <meta property="og:image" content="http://mubapp.herokuapp.com{{ view.kwargs.image.url }}">
-    <meta property="twitter:image" content="http://mubapp.herokuapp.com{{ view.kwargs.image.url }}">
+    <meta property="og:image" content="https://mubapp.herokuapp.com{{ view.kwargs.image.url }}">
+    <meta property="twitter:image" content="https://mubapp.herokuapp.com{{ view.kwargs.image.url }}">
   {% else %}
     <meta property="og:image" content="https://mubapp.herokuapp.com/media/about.jpg">
     <meta property="twitter:image" content="https://mubapp.herokuapp.com/media/about.jpg">
@@ -104,11 +167,10 @@
     <meta property="og:url" content="https://mubapp.herokuapp.com/">
     <meta property="twitter:url" content="https://mubapp.herokuapp.com/">
   {% endif %}
+-->
 
   <meta property="twitter:card" content="summary_large_image">
   <meta property="og:type" content="website">
-  <meta property="og:author" content="Heval Hazal Kurt">
-  <meta property="twitter:author" content="Heval Hazal Kurt">
 
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
