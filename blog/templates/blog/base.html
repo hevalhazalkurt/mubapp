@@ -51,9 +51,9 @@
     <meta property="og:description" content="{{ user_profile.profile.about }}">
     <meta property="twitter:description" content="{{ user_profile.profile.about }}">
   {% elif view.kwargs.slug %}
-    <meta name="description" content="Posts in #{{ view.kwargs.slug }}">
-    <meta property="og:description" content="Posts in #{{ view.kwargs.slug }}">
-    <meta property="twitter:description" content="Posts in #{{ view.kwargs.slug }}">
+    <meta name="description" content="Read more blog posts about {{ view.kwargs.slug }} from different users in MUBapp.">
+    <meta property="og:description" content="Read more blog posts about {{ view.kwargs.slug }} from different users in MUBapp.">
+    <meta property="twitter:description" content="Read more blog posts about {{ view.kwargs.slug }} from different users in MUBapp.">
   {% elif view.kwargs.summary %}
     <meta name="description" content="{{ view.kwargs.summary }}">
     <meta property="og:description" content="{{ view.kwargs.summary }}">
@@ -95,8 +95,8 @@
     <meta property="og:url" content="http://mubapp.herokuapp.com/user/{{ view.kwargs.username }}">
     <meta property="twitter:url" content="http://mubapp.herokuapp.com/user/{{ view.kwargs.username }}">
   {% elif view.kwargs.slug %}
-    <meta property="og:url" content="http://mubapp.herokuapp.com/category/{{ view.kwargs.slug }}">
-    <meta property="twitter:url" content="http://mubapp.herokuapp.com/category/{{ view.kwargs.slug }}">
+    <meta property="og:url" content="http://mubapp.herokuapp.com/category/{{ view.kwargs.slug }}/">
+    <meta property="twitter:url" content="http://mubapp.herokuapp.com/category/{{ view.kwargs.slug }}/">
   {% elif view.kwargs.get_absolute_url %}
     <meta property="og:url" content="http://mubapp.herokuapp.com{{ view.kwargs.get_absolute_url }}">
     <meta property="twitter:url" content="http://mubapp.herokuapp.com{{ view.kwargs.get_absolute_url }}">
