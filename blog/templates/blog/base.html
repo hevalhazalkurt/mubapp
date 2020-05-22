@@ -40,30 +40,33 @@
 
   {% if object.summary %}
     <meta name="description" content="{{ object.summary }}">
+    <meta property="og:description" content="{{ object.summary }}">
     <meta property="twitter:description" content="{{ object.summary }}">
   {% elif summary %}
     <meta name="description" content="{{ summary }}">
+    <meta property="og:description" content="{{ summary }}">
     <meta property="twitter:description" content="{{ summary }}">
   {% elif view.kwargs.summary %}
     <meta name="description" content="{{ view.kwargs.summary }}">
+    <meta property="og:description" content="{{ view.kwargs.summary }}">
     <meta property="twitter:description" content="{{ view.kwargs.summary }}">
   {% else %}
     <meta name="description" content="MUB is a multi-user blog web app using the Python-Django infrastructure built by Heval Hazal Kurt.">
-    <meta property="og:title" content="MUB is a multi-user blog web app using the Python-Django infrastructure built by Heval Hazal Kurt.">
-    <meta property="twitter:title" content="MUB is a multi-user blog web app using the Python-Django infrastructure built by Heval Hazal Kurt.">
+    <meta property="og:description" content="MUB is a multi-user blog web app using the Python-Django infrastructure built by Heval Hazal Kurt.">
+    <meta property="twitter:description" content="MUB is a multi-user blog web app using the Python-Django infrastructure built by Heval Hazal Kurt.">
   {% endif %}
 
 
 
   {% if object.image.url %}
-    <meta property="og:image" content="{{ object.image.url }}">
+    <meta property="og:image" content="http://mubapp.herokuapp.com/{{ object.image.url }}">
     <meta property="twitter:image" content="{{ object.image.url }}">
   {% elif image.url %}
-    <meta property="og:image" content="{{ image.url }}">
-    <meta property="twitter:image" content="{{ image.url }}">
+    <meta property="og:image" content="http://mubapp.herokuapp.com/{{ image.url }}">
+    <meta property="twitter:image" content="http://mubapp.herokuapp.com/{{ image.url }}">
   {% elif view.kwargs.image.url %}
-    <meta property="og:image" content="{{ view.kwargs.image.url }}">
-    <meta property="twitter:image" content="{{ view.kwargs.image.url }}">
+    <meta property="og:image" content="http://mubapp.herokuapp.com/{{ view.kwargs.image.url }}">
+    <meta property="twitter:image" content="http://mubapp.herokuapp.com/{{ view.kwargs.image.url }}">
   {% else %}
     <meta property="og:image" content="https://mubapp.herokuapp.com/media/about.jpg">
     <meta property="twitter:image" content="https://mubapp.herokuapp.com/media/about.jpg">
@@ -73,14 +76,14 @@
 
 
   {% if object.get_absolute_url %}
-    <meta property="og:url" content="{{ object.get_absolute_url }}">
-    <meta property="twitter:url" content="{{ object.get_absolute_url }}">
+    <meta property="og:url" content="http://mubapp.herokuapp.com/{{ object.get_absolute_url }}">
+    <meta property="twitter:url" content="http://mubapp.herokuapp.com/{{ object.get_absolute_url }}">
   {% elif get_absolute_url %}
-    <meta property="og:url" content="{{ get_absolute_url }}">
-    <meta property="twitter:url" content="{{ get_absolute_url }}">
+    <meta property="og:url" content="http://mubapp.herokuapp.com/{{ get_absolute_url }}">
+    <meta property="twitter:url" content="http://mubapp.herokuapp.com/{{ get_absolute_url }}">
   {% elif view.kwargs.get_absolute_url %}
-    <meta property="og:url" content="{{ view.kwargs.get_absolute_url }}">
-    <meta property="twitter:url" content="{{ view.kwargs.get_absolute_url }}">
+    <meta property="og:url" content="http://mubapp.herokuapp.com/{{ view.kwargs.get_absolute_url }}">
+    <meta property="twitter:url" content="http://mubapp.herokuapp.com/{{ view.kwargs.get_absolute_url }}">
   {% else %}
     <meta property="og:url" content="https://mubapp.herokuapp.com/">
     <meta property="twitter:url" content="https://mubapp.herokuapp.com/">
