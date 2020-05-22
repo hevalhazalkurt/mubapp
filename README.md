@@ -22,7 +22,7 @@ Don't you like reading codes? You can also test [**MUBapp**](https://mubapp.hero
 <br>
 
 * Multi user blogging system
-* User profile card 
+* User profile card
 * Auto-slug url by post title
 * Post listing by user
 * Post listing by category
@@ -38,6 +38,7 @@ Don't you like reading codes? You can also test [**MUBapp**](https://mubapp.hero
 * Rich text editor for new and update post
 * Post create, update and delete on frontend
 * Clean and responsive design with TailwindCSS
+* SEO friendly meta tags system
 
 
 <br>
