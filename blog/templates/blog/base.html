@@ -95,11 +95,11 @@
     <meta property="og:url" content="http://mubapp.herokuapp.com/user/{{ view.kwargs.username }}">
     <meta property="twitter:url" content="http://mubapp.herokuapp.com/user/{{ view.kwargs.username }}">
   {% elif view.kwargs.slug %}
-    <meta property="og:url" content="http://mubapp.herokuapp.com/user/{{ view.kwargs.username }}">
-    <meta property="twitter:url" content="http://mubapp.herokuapp.com/user/{{ view.kwargs.username }}">
+    <meta property="og:url" content="http://mubapp.herokuapp.com/category/{{ view.kwargs.slug }}">
+    <meta property="twitter:url" content="http://mubapp.herokuapp.com/category/{{ view.kwargs.slug }}">
   {% elif view.kwargs.get_absolute_url %}
-    <meta property="og:url" content="http://mubapp.herokuapp.com/category/{{ view.kwargs.slug|title }}">
-    <meta property="twitter:url" content="http://mubapp.herokuapp.com/category/{{ view.kwargs.slug|title }}">
+    <meta property="og:url" content="http://mubapp.herokuapp.com{{ view.kwargs.get_absolute_url }}">
+    <meta property="twitter:url" content="http://mubapp.herokuapp.com{{ view.kwargs.get_absolute_url }}">
   {% else %}
     <meta property="og:url" content="https://mubapp.herokuapp.com/">
     <meta property="twitter:url" content="https://mubapp.herokuapp.com/">
