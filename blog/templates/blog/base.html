@@ -46,6 +46,10 @@
     <meta name="description" content="{{ summary }}">
     <meta property="og:description" content="{{ summary }}">
     <meta property="twitter:description" content="{{ summary }}">
+  {% elif view.kwargs.username %}
+    <meta name="description" content="{{ view.kwargs.username }} : {{ user_profile.profile.about }}">
+    <meta property="og:description" content="{{ view.kwargs.username }} : {{ user_profile.profile.about }}">
+    <meta property="twitter:description" content="{{ view.kwargs.username }} : {{ user_profile.profile.about }}">
   {% elif view.kwargs.summary %}
     <meta name="description" content="{{ view.kwargs.summary }}">
     <meta property="og:description" content="{{ view.kwargs.summary }}">
@@ -64,6 +68,9 @@
   {% elif image.url %}
     <meta property="og:image" content="http://mubapp.herokuapp.com{{ image.url }}">
     <meta property="twitter:image" content="http://mubapp.herokuapp.com{{ image.url }}">
+  {% elif view.kwargs.username %}
+    <meta property="og:image" content="http://mubapp.herokuapp.com{{ user_profile.profile.cover.url }}">
+    <meta property="twitter:image" content="http://mubapp.herokuapp.com{{ user_profile.profile.cover.url }}">
   {% elif view.kwargs.image.url %}
     <meta property="og:image" content="http://mubapp.herokuapp.com{{ view.kwargs.image.url }}">
     <meta property="twitter:image" content="http://mubapp.herokuapp.com{{ view.kwargs.image.url }}">
@@ -80,6 +87,9 @@
   {% elif get_absolute_url %}
     <meta property="og:url" content="http://mubapp.herokuapp.com{{ get_absolute_url }}">
     <meta property="twitter:url" content="http://mubapp.herokuapp.com{{ get_absolute_url }}">
+  {% elif view.kwargs.username %}
+    <meta property="og:url" content="http://mubapp.herokuapp.com/user/{{ view.kwargs.username }}">
+    <meta property="twitter:url" content="http://mubapp.herokuapp.com/user/{{ view.kwargs.username }}">
   {% elif view.kwargs.get_absolute_url %}
     <meta property="og:url" content="http://mubapp.herokuapp.com{{ view.kwargs.get_absolute_url }}">
     <meta property="twitter:url" content="http://mubapp.herokuapp.com{{ view.kwargs.get_absolute_url }}">
