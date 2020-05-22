@@ -3,6 +3,8 @@
 
 <head>
 
+{% with home="https://mubapp.herokuapp.com/" %}
+
   {% if object.title %}
     <title> { MUB :  {{ object.title }} }</title>
     <meta property="og:title" content="{{ object.title }}">
@@ -12,11 +14,8 @@
     <meta property="og:description" content="{{ object.summary }}">
     <meta property="twitter:description" content="{{ object.summary }}">
 
-    <meta property="og:image" content="https://mubapp.herokuapp.com{{ object.image.url }}">
-    <meta property="twitter:image" content="https://mubapp.herokuapp.com{{ object.image.url }}">
-    <!--
-    <meta property="og:url" content="https://mubapp.herokuapp.com{{ object.get_absolute_url }}">
-    <meta property="twitter:url" content="https://mubapp.herokuapp.com{{ object.get_absolute_url }}">-->
+    <meta property="og:image" content="{{ home }}{{ object.image.url }}">
+    <meta property="twitter:image" content="{{ home }}{{ object.image.url }}">
 
     <meta property="og:author" content="{{ object.author }}">
     <meta property="twitter:author" content="{{ object.author }}">
@@ -30,12 +29,8 @@
     <meta property="og:description" content="{{ summary }}">
     <meta property="twitter:description" content="{{ summary }}">
 
-    <!--
-    <meta property="og:image" content="https://mubapp.herokuapp.com{{ image.url }}">
-    <meta property="twitter:image" content="https://mubapp.herokuapp.com{{ image.url }}">-->
-
-    <meta property="og:url" content="https://mubapp.herokuapp.com/{{ title|lower }}/">
-    <meta property="twitter:url" content="https://mubapp.herokuapp.com/{{ title|lower }}/">
+    <meta property="og:image" content="{{ home }}{{ image.url }}">
+    <meta property="twitter:image" content="{{ home }}{{ image.url }}">
 
     <meta property="og:author" content="Heval Hazal Kurt">
     <meta property="twitter:author" content="Heval Hazal Kurt">
@@ -49,11 +44,8 @@
     <meta property="og:description" content="{{ user_profile.profile.about }}">
     <meta property="twitter:description" content="{{ user_profile.profile.about }}">
 
-    <meta property="og:image" content="https://mubapp.herokuapp.com{{ user_profile.profile.cover.url }}">
-    <meta property="twitter:image" content="https://mubapp.herokuapp.com{{ user_profile.profile.cover.url }}">
-    <!--
-    <meta property="og:url" content="https://mubapp.herokuapp.com/user/{{ view.kwargs.username }}">
-    <meta property="twitter:url" content="https://mubapp.herokuapp.com/user/{{ view.kwargs.username }}">-->
+    <meta property="og:image" content="{{ home }}{{ user_profile.profile.cover.url }}">
+    <meta property="twitter:image" content="{{ home }}{{ user_profile.profile.cover.url }}">
 
     <meta property="og:author" content="{{ view.kwargs.username }}">
     <meta property="twitter:author" content="{{ view.kwargs.username }}">
@@ -67,14 +59,11 @@
     <meta property="og:description" content="Read more blog posts about {{ view.kwargs.slug }} from different users in MUBapp.">
     <meta property="twitter:description" content="Read more blog posts about {{ view.kwargs.slug }} from different users in MUBapp.">
 
-    <meta property="og:image" content="https://mubapp.herokuapp.com/media/about.jpg">
-    <meta property="twitter:image" content="https://mubapp.herokuapp.com/media/about.jpg">
+    <meta property="og:image" content="{{ home }}media/about.jpg">
+    <meta property="twitter:image" content="{{ home }}media/about.jpg">
 
-    <meta property="og:url" content="https://mubapp.herokuapp.com/category/{{ view.kwargs.slug }}/">
-    <meta property="twitter:url" content="https://mubapp.herokuapp.com/category/{{ view.kwargs.slug }}/">
-    <!--
-    <meta property="og:url" content="https://mubapp.herokuapp.com{{ view.kwargs.get_absolute_url }}">
-    <meta property="twitter:url" content="https://mubapp.herokuapp.com{{ view.kwargs.get_absolute_url }}">-->
+    <meta property="og:url" content="{{ home }}category/{{ view.kwargs.slug }}/">
+    <meta property="twitter:url" content="{{ home }}category/{{ view.kwargs.slug }}/">
 
   {% else %}
     <title>{ MUB : Multi-User Blog }</title>
@@ -84,16 +73,13 @@
     <meta property="og:description" content="MUB is a multi-user blog web app using the Python-Django infrastructure built by Heval Hazal Kurt.">
     <meta property="twitter:description" content="MUB is a multi-user blog web app using the Python-Django infrastructure built by Heval Hazal Kurt.">
 
-    <meta property="og:image" content="https://mubapp.herokuapp.com/media/about.jpg">
-    <meta property="twitter:image" content="https://mubapp.herokuapp.com/media/about.jpg">
-    <!--
-    <meta property="og:url" content="https://mubapp.herokuapp.com/">
-    <meta property="twitter:url" content="https://mubapp.herokuapp.com/">-->
+    <meta property="og:image" content="{{ home }}media/about.jpg">
+    <meta property="twitter:image" content="{{ home }}media/about.jpg">
 
     <meta property="og:author" content="Heval Hazal Kurt">
     <meta property="twitter:author" content="Heval Hazal Kurt">
   {% endif %}
-
+{% endwith %}
 
   <meta property="og:type" content="website">
   <meta property="og:image:width" content="1200" />
