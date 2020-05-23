@@ -39,6 +39,7 @@ Don't you like reading codes? You can also test [**MUBapp**](https://mubapp.hero
 * Post create, update and delete on frontend
 * Clean and responsive design with TailwindCSS
 * SEO friendly meta tags system
+* Social share buttons
 
 
 <br>
