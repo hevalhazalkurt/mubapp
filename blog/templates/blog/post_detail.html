@@ -49,22 +49,37 @@
 
       <br>
 
-      <div class="w-full md:flex md:-mx-2">
+      <!-- Social share section -->
+      {% with theurl=request.build_absolute_uri %}
+      <div class="text-center">
+        <h2 class="text-gray-900 font-bold text-l mb-2 py-2">Share on</h2>
+      </div>
 
-      <!-- Twitter share -->
-      <div class="w-full md:w-1/6 px-2"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+      <div class="flex justify-center pb-6 text-grey-dark">
+      <div class="text-center mr-3 border-r pr-3">
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ theurl }}" target="_blank"><img class="h-6 w-6" src="../../media/021-facebook.png" alt="Share on Facebook"></a>
+      </div>
+      <div class="text-center mr-3 border-r pr-3">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ theurl }}&title={{ object.title }}&summary=mubapp.herokuapp.com&source=MUBapp" target="_blank"><img class="h-6 w-6" src="../../media/045-linkedin.png" alt="Share on LinkedIn"></a>
+      </div>
+      <div class="text-center mr-3 border-r pr-3">
+        <a href="http://twitter.com/share?text={{ object.title }} by @hevalandsteven &url={{ theurl }}&hashtags={{ object.category }}" target="_blank"><img class="h-6 w-6" src="../../media/043-twitter.png" alt="Share on Twitter"></a>
+      </div>
 
-      <!-- LinkedIn share -->
-      <div class="w-full md:w-1/6 px-2"><script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
-      <script type="IN/Share" data-url="https://mubapp.herokuapp.com/{{ object.slug }}/"></script></div>
+      <div class="text-center mr-3 border-r pr-3">
+        <a href="http://www.reddit.com/submit?url={{ theurl }}&title={{ object.title }}" target="_blank"><img class="h-6 w-6" src="../../media/042-reddit.png" alt="Share on Reddit"></a>
+      </div>
 
-      <!-- Facebook like & share -->
-      <div class="w-full md:w-1/6 px-2"><div id="fb-root"></div>
-      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/tr_TR/sdk.js#xfbml=1&version=v7.0"></script>
+      <div class="text-center mr-3 border-r pr-3">
+        <a href="https://telegram.me/share/url?url={{ theurl }}" target="_blank"><img class="h-6 w-6" src="../../media/029-telegram.png" alt="Share on Telegram"></a>
+      </div>
 
-      <div class="fb-like" data-href="https://mubapp.herokuapp.com/{{ object.slug }}/" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"> </div></div>
+      <div class="text-center">
+        <a href="http://pinterest.com/pin/create/button/?url={{ theurl }}&description={{ object.title }}" target="_blank"><img class="h-6 w-6" src="../../media/041-pinterest.png" alt="Share on Pinterest"></a>
+      </div>
+      </div>
 
-    </div>
+      {% endwith %}
 
     </div>
 
