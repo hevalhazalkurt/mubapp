@@ -48,7 +48,7 @@
       {% endif %}
 
       <br>
-      {% with theurl="{{ request.build_absolute_uri }}" %}
+
       <div class="w-full md:flex md:-mx-2">
 
       <!-- Twitter share -->
@@ -56,16 +56,16 @@
 
       <!-- LinkedIn share -->
       <div class="w-full md:w-1/6 px-2"><script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
-      <script type="IN/Share" data-url="https://mubapp.herokuapp.com"></script></div>
+      <script type="IN/Share" data-url="https://mubapp.herokuapp.com/{{ object.slug }}/"></script></div>
 
       <!-- Facebook like & share -->
       <div class="w-full md:w-1/6 px-2"><div id="fb-root"></div>
       <script async defer crossorigin="anonymous" src="https://connect.facebook.net/tr_TR/sdk.js#xfbml=1&version=v7.0"></script>
 
-      <div class="fb-like" data-href="https://mubapp.herokuapp.com" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"> </div></div>
+      <div class="fb-like" data-href="https://mubapp.herokuapp.com/{{ object.slug }}/" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"> </div></div>
 
     </div>
-    {% endwith %}
+
     </div>
 
 
