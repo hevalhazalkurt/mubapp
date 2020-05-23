@@ -46,6 +46,26 @@
         <a class="text-sm font-semibold text-gray-500" href="{% url "blog-delete" object.slug %}">Delete</a>
       </div>
       {% endif %}
+
+      <br>
+      {% with theurl="{{ request.build_absolute_uri }}" %}
+      <div class="w-full md:flex md:-mx-2">
+
+      <!-- Twitter share -->
+      <div class="w-full md:w-1/6 px-2"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+
+      <!-- LinkedIn share -->
+      <div class="w-full md:w-1/6 px-2"><script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+      <script type="IN/Share" data-url="{{ theurl }}"></script></div>
+
+      <!-- Facebook like & share -->
+      <div class="w-full md:w-1/6 px-2"><div id="fb-root"></div>
+      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/tr_TR/sdk.js#xfbml=1&version=v7.0"></script>
+
+      <div class="fb-like" data-href="{{ theurl }}" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"> </div></div>
+
+    </div>
+    {% endwith %}
     </div>
 
 
